@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020 The ZMK Contributors
+ * Copyright (c) 2023 The ZMK Contributors
  *
  * SPDX-License-Identifier: MIT
  */
@@ -7,9 +7,15 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
-#include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/ext_power.h>
-#include <dt-bindings/zmk/rgb.h>
+
+/* Uncomment this block if using RGB
+&led_strip {
+    chain-length = <6>;
+    // chain-length = <35>; // Uncomment if using both per-key and underglow LEDs
+    // chain-length = <29>; // Uncomment if using only per-key LEDs.
+};
+ */
 
 #define DEFAULT 0
 #define INTERFACE 1
