@@ -1,3 +1,13 @@
-build:
-  settings:
-    board_root: .
+file_format: "1"
+id: zmk100
+name: splitkb.com zmk100
+type: shield
+url: https://splitkb.com/products/aurora-sofle-pcb-kit
+requires: [pro_micro]
+exposes: [i2c_oled]
+features:
+  - keys
+  - display
+siblings:
+  - zmk100_left
+  - zmk100_right
