@@ -4,34 +4,42 @@
 if SHIELD_ZMK100_LEFT
 
 config ZMK_KEYBOARD_NAME
+    string "Keyboard name"
     default "zmk100"
 
 config ZMK_SPLIT_ROLE_CENTRAL
+    bool "Split central role"
     default y
 
 endif # SHIELD_ZMK100_LEFT
 
 if SHIELD_ZMK100_RIGHT
-  config ZMK_SPLIT_ROLE_PERIPHERAL
-    default y
-endif
 
+config ZMK_SPLIT_ROLE_PERIPHERAL
+    bool "Split peripheral role"
+    default y
+
+endif # SHIELD_ZMK100_RIGHT
 
 if SHIELD_ZMK100_LEFT || SHIELD_ZMK100_RIGHT
 
 config ZMK_SPLIT
+    bool "Enable split keyboard"
     default y
 
 config ZMK_RGB_UNDERGLOW
+    bool "Enable RGB underglow"
     select WS2812_STRIP
     select SPI
 
 if ZMK_DISPLAY
 
 config SSD1306
+    bool "Enable SSD1306 OLED driver"
     default y
 
 config I2C
+    bool "Enable I2C bus"
     default y
 
 endif # ZMK_DISPLAY
@@ -39,12 +47,15 @@ endif # ZMK_DISPLAY
 if LVGL
 
 config LV_Z_VDB_SIZE
+    int "LVGL VDB size"
     default 64
 
 config LV_DPI_DEF
+    int "LVGL default DPI"
     default 148
 
 config LV_Z_BITS_PER_PIXEL
+    int "LVGL bits per pixel"
     default 1
 
 choice LV_COLOR_DEPTH
