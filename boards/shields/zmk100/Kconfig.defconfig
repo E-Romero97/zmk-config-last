@@ -13,6 +13,9 @@ endif # SHIELD_ZMK100_LEFT
 
 if SHIELD_ZMK100_RIGHT
 
+config ZMK_KEYBOARD_NAME
+    default "zmk100"
+
 config ZMK_SPLIT_ROLE_PERIPHERAL
     default y
 
