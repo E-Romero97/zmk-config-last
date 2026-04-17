@@ -32,5 +32,5 @@
 };
 
 &default_transform {
-    col-offset = <8>;
+    col-offset = <7>;
 };
