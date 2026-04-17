@@ -3,17 +3,13 @@
 
 if SHIELD_ZMK100_LEFT
 
+config ZMK_KEYBOARD_NAME
+    default "zmk100"
+
 config ZMK_SPLIT_ROLE_CENTRAL
-    def_bool y
+    default y
 
-endif
-
-if SHIELD_ZMK100_RIGHT
-
-config ZMK_SPLIT_ROLE_PERIPHERAL
-    def_bool y
-
-endif
+endif # SHIELD_ZMK100_LEFT
 
 if SHIELD_ZMK100_LEFT || SHIELD_ZMK100_RIGHT
 
