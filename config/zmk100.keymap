@@ -424,7 +424,7 @@
 &kp K_MUTE        &kp LEFT_CONTROL  &tog 6  &kp LEFT_ALT  &kp LEFT_SHIFT  &kp SPACE    &mkp LCLK           &trans  &trans  &tog 6     &trans   &kp DELETE
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
+            sensor-bindings = <&inc_dec_kp K_VOLUME_DOWN K_VOLUME_UP>;
         };
 
         layer_4 {
