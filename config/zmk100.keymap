@@ -128,11 +128,11 @@
         tapping-term-ms = <300>;
     };
 
-    hideFunction: hideFunction {
+    copyFunction: copyFunction {
         compatible = "zmk,behavior-tap-dance";
-        label = "HIDEFUNCTION";
+        label = "COPYFUNCTION";
         #binding-cells = <0>;
-        bindings = <&kp LA(LG(LEFT))>, <&kp LA(LG(RIGHT))>;
+        bindings = <&kp LG(C)>, <&kp LG(V)>, <&kp LG(X)>;
 
         tapping-term-ms = <300>;
     };
@@ -207,6 +207,15 @@
         bindings = <&kp LG(LC(E))>, <&kp LC(LG(J))>;
 
         tapping-term-ms = <300>;
+    };
+
+    underScore: underScore {
+        compatible = "zmk,behavior-mod-morph";
+        label = "UNDERSCORE";
+        bindings = <&kp UNDERSCORE>, <&kp QUESTION>;
+
+        #binding-cells = <0>;
+        mods = <(MOD_RSFT)>;
     };
 
     behaviors {
@@ -369,15 +378,15 @@
 
         layer0 {
             bindings = <
-&kp ESC           &kp N1       &kp N2    &kp N3       &kp N4           &kp N5       &kp LG(TAB)        &kp N6     &kp N7     &kp N8     &kp N9           &kp N0      &kp BACKSPACE
-&kp TAB           &kp LC(W)    &kp UP    &kp LC(TAB)  &minWindows      &kp LC(T)    &kp LG(D)          &kp Y      &kp U      &kp I      &kp O            &kp P       &kp BSLH
-&kp LEFT_SHIFT    &kp LEFT     &kp DOWN  &kp RIGHT    &kp F            &kp RET      &kp LG(LS(LEFT))   &kp H      &kp J      &kp K      &kp L            &kp SEMI    &kp ENTER
-&kp LEFT_CONTROL  &kp Z        &kp X     &kp LC(C)    &kp LC(V)        &kp F5       &kp LG(RS(RIGHT))  &kp N      &kp M      &kp COMMA  &kp DOT          &kp FSLH    &kp RIGHT_SHIFT
-&kp LC(LA(F11))   &multimedia  &disc     &kp LALT     &kp PRINTSCREEN  &kp SPACE    &kp ENTER          &kp SPACE  &kp ENTER  &tog 2     &kp RIGHT_SHIFT  &kp DELETE
+&kp ESC           &kp N1       &kp N2    &kp N3       &kp N4       &kp N5       &kp LG(TAB)        &kp N6     &kp N7     &kp N8     &kp N9           &kp N0      &kp BACKSPACE
+&kp TAB           &kp LC(W)    &kp UP    &kp LC(TAB)  &minWindows  &kp LC(T)    &kp LG(D)          &kp Y      &kp U      &kp I      &kp O            &kp P       &kp BSLH
+&kp LEFT_SHIFT    &kp LEFT     &kp DOWN  &kp RIGHT    &kp F        &kp RET      &kp LG(LS(LEFT))   &kp H      &kp J      &kp K      &kp L            &kp SEMI    &kp ENTER
+&kp LEFT_CONTROL  &kp Z        &kp X     &kp LC(C)    &kp LC(V)    &kp F5       &kp LG(RS(RIGHT))  &kp N      &kp M      &kp COMMA  &kp DOT          &kp FSLH    &kp RIGHT_SHIFT
+&kp LC(LA(F11))   &multimedia  &disc     &kp LALT     &trans       &kp SPACE    &kp ENTER          &kp SPACE  &kp ENTER  &tog 2     &kp RIGHT_SHIFT  &kp DELETE
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOL_DN>;
-            display-name = "Navigation";
+            display-name = "NAV";
         };
 
         layer_1 {
@@ -385,11 +394,11 @@
 &kp ESC           &kp N1       &kp N2  &kp N3    &kp N4  &kp N5       &trans  &trans     &trans  &trans  &trans  &trans  &trans
 &kp TAB           &kp Q        &kp W   &kp E     &kp R   &kp T        &trans  &trans     &trans  &trans  &trans  &trans  &trans
 &kp LEFT_CONTROL  &kp A        &kp S   &kp D     &kp F   &kp G        &trans  &trans     &trans  &trans  &trans  &trans  &kp ENTER
-&kp H             &kp Z        &trans  &trans    &kp V   &kp B        &trans  &trans     &trans  &trans  &trans  &trans  &trans
+&kp LEFT_SHIFT    &kp Z        &trans  &trans    &kp V   &kp B        &trans  &trans     &trans  &trans  &trans  &trans  &trans
 &kp LA(LC(F11))   &multimedia  &disc   &kp LALT  &kp P   &kp SPACE    &kp M   &kp SPACE  &trans  &tog 2  &kp L   &kp N3
             >;
 
-            display-name = "Gaming";
+            display-name = "GAME";
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
         };
 
@@ -402,18 +411,18 @@
 &trans      &kp LEFT_COMMAND  &kp LEFT_SHIFT  &kp LEFT_ALT  &trans  &kp SPACE    &kp K_SELECT    &kp SPACE  &none   &tog 2     &tog 4   &kp DEL
             >;
 
-            display-name = "Win";
+            display-name = "WIN";
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
         };
 
         layer_3 {
-            display-name = "Mac";
+            display-name = "MAC";
             bindings = <
-&kp ESC           &kp N1            &kp N2  &kp N3  &kp N4  &kp N5    &kp LC(UP_ARROW)    &kp N6  &kp N7  &kp N8     &kp N9   &kp N0    &kp BSPC
-&kp TAB           &kp Q             &kp W   &kp E   &kp R   &kp T     &kp F11             &kp Y   &kp U   &kp I      &kp O    &kp P     &kp BSLH
-&caps_word        &kp A             &kp S   &kp D   &kp F   &kp G     &kp LC(LEFT_ARROW)  &kp H   &kp J   &kp K      &kp L    &kp SEMI  &kp RET
-&kp LEFT_COMMAND  &kp Z             &kp X   &kp C   &kp V   &kp B     &kp LC(RIGHT)       &kp N   &kp M   &kp COMMA  &kp DOT  &kp FSLH  &kp RSHFT
-&kp LC(LA(F11))   &kp LEFT_CONTROL  &trans  &trans  &trans  &trans    &mkp LCLK           &trans  &trans  &tog 6     &trans   &trans
+&kp ESC           &kp N1            &kp N2  &kp N3        &kp N4          &kp N5       &kp LC(UP_ARROW)    &kp N6  &kp N7  &kp N8     &kp N9   &kp N0      &kp BSPC
+&kp TAB           &kp Q             &kp W   &kp E         &kp R           &kp T        &kp F11             &kp Y   &kp U   &kp I      &kp O    &kp P       &kp BSLH
+&caps_word        &kp A             &kp S   &kp D         &kp F           &kp G        &kp LC(LEFT_ARROW)  &kp H   &kp J   &kp K      &kp L    &kp SEMI    &kp RET
+&kp LEFT_COMMAND  &kp Z             &kp X   &kp C         &kp V           &kp B        &kp LC(RIGHT)       &kp N   &kp M   &kp COMMA  &kp DOT  &kp FSLH    &kp RSHFT
+&kp LC(LA(F11))   &kp LEFT_CONTROL  &tog 6  &kp LEFT_ALT  &kp LEFT_SHIFT  &kp SPACE    &mkp LCLK           &trans  &trans  &tog 6     &trans   &kp DELETE
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
@@ -421,14 +430,14 @@
 
         layer_4 {
             bindings = <
-&kp GRAVE   &kp F1           &kp F2          &kp F3           &kp F4           &kp F5             &mmv MOVE_UP     &kp F6           &kp F7           &kp F8      &kp F9     &kp F10           &trans
-&trans      &kp GRAVE        &mkp LCLK       &mkp MCLK        &mkp RCLK        &mkp MB4           &mmv MOVE_DOWN   &kp PG_UP        &kp END          &kp UP      &kp HOME   &kp MINUS         &kp EQUAL
-&trans      &kp TILDE        &trans          &trans           &trans           &mkp MB5           &mmv MOVE_LEFT   &kp PG_DN        &kp LEFT         &kp DOWN    &kp RIGHT  &kp LEFT_BRACKET  &kp RIGHT_BRACKET
-&trans      &rgb_ug RGB_OFF  &rgb_ug RGB_ON  &rgb_ug RGB_EFF  &rgb_ug RGB_EFR  &rgb_ug RGB_SPI    &mmv MOVE_RIGHT  &rgb_ug RGB_BRI  &rgb_ug RGB_BRD  &kp INSERT  &kp F11    &kp F12           &trans
-&kp C_MUTE  &trans           &trans          &trans           &trans           &trans             &mkp LCLK        &trans           &trans           &trans      &trans     &trans
+&kp GRAVE   &kp F1           &kp F2          &kp F3           &kp F4           &kp F5             &mmv MOVE_UP     &kp F6           &kp F7           &kp F8        &kp F9            &kp F10            &trans
+&trans      &kp GRAVE        &mkp LCLK       &mkp MCLK        &mkp RCLK        &mkp MB4           &mmv MOVE_DOWN   &kp PG_UP        &kp SLASH        &kp ASTERISK  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp EQUAL
+&trans      &kp TILDE        &trans          &trans           &trans           &mkp MB5           &mmv MOVE_LEFT   &kp PG_DN        &kp PLUS         &kp MINUS     &kp KP_EQUAL      &kp SQT            &kp RIGHT_BRACKET
+&trans      &rgb_ug RGB_OFF  &rgb_ug RGB_ON  &rgb_ug RGB_EFF  &rgb_ug RGB_EFR  &rgb_ug RGB_SPI    &mmv MOVE_RIGHT  &rgb_ug RGB_BRI  &rgb_ug RGB_BRD  &kp INSERT    &kp F11           &kp F12            &trans
+&kp C_MUTE  &trans           &trans          &trans           &trans           &trans             &mkp LCLK        &trans           &trans           &trans        &trans            &trans
             >;
 
-            display-name = "Settings";
+            display-name = "FUNC";
             sensor-bindings = <&scroll_encoder>;
         };
 
@@ -441,19 +450,19 @@
 &trans     &trans        &trans          &trans        &trans        &trans          &mkp LCLK        &trans  &trans  &trans      &trans     &trans
             >;
 
-            display-name = "Bluetoth";
+            display-name = "BLUE";
             sensor-bindings = <&scroll_encoder>;
         };
 
         Layers {
             bindings = <
-&kp ESC       &kp NUMBER_1            &kp NUMBER_2           &kp NUMBER_3       &kp NUMBER_4   &kp N5              &mmv MOVE_UP     &kp NUMBER_6  &kp N7         &kp N8           &kp N9         &kp NUMBER_0    &kp BACKSPACE
-&kp TAB       &kp LC(LG(LEFT_ARROW))  &kp UP                 &kp LC(LG(RIGHT))  &minimize      &kp LG(LC(T))       &mmv MOVE_DOWN   &variables    &kp KP_DIVIDE  &kp KP_ASTERISK  &leftBrace     &rightBrace     &trans
-&kp LEFT_ALT  &kp LEFT                &kp DOWN               &kp RIGHT          &renameJump    &showIn             &mmv MOVE_LEFT   &functions    &kp KP_PLUS    &kp KP_SUBTRACT  &kp KP_EQUAL   &comillas       &kp ENTER
-&kp LEFT_WIN  &kp LC(I)               &kp LC(LG(LA(MINUS)))  &kp LG(KP_DIVIDE)  &hideFunction  &kp LC(NUMBER_6)    &mmv MOVE_RIGHT  &trans        &findWord      &findFile        &kp LA(LG(F))  &kp UNDERSCORE  &kp RIGHT_SHIFT
-&kp K_MUTE    &kp LC(LA(LG(ENTER)))   &kp LA(LG(ENTER))      &kp LA(LG(N0))     &kp LS(LG(Y))  &kp LG(N0)          &mkp LCLK        &kp SPACE     &debug         &tog 6           &kp LG(COMMA)  &kp DEL
+&kp ESC       &kp NUMBER_1           &kp NUMBER_2           &kp NUMBER_3       &kp NUMBER_4   &kp N5              &mmv MOVE_UP     &kp NUMBER_6  &kp N7         &kp N8           &kp N9         &kp NUMBER_0  &kp BACKSPACE
+&kp TAB       &kp LS(LEFT_ARROW)     &kp UP                 &kp LS(RIGHT)      &minimize      &kp LG(LC(T))       &mmv MOVE_DOWN   &variables    &kp KP_DIVIDE  &kp KP_ASTERISK  &leftBrace     &rightBrace   &kp NON_US_BACKSLASH
+&kp LEFT_ALT  &kp LEFT               &kp DOWN               &kp RIGHT          &renameJump    &showIn             &mmv MOVE_LEFT   &functions    &kp KP_PLUS    &kp KP_SUBTRACT  &kp KP_EQUAL   &comillas     &kp ENTER
+&kp LEFT_WIN  &kp LC(I)              &kp LC(LG(LA(MINUS)))  &kp LG(KP_DIVIDE)  &copyFunction  &kp LC(NUMBER_6)    &mmv MOVE_RIGHT  &trans        &findWord      &findFile        &kp LA(LG(F))  &underScore   &kp RIGHT_SHIFT
+&kp K_MUTE    &kp LC(LA(LG(ENTER)))  &kp LA(LG(ENTER))      &kp LG(LS(Y))      &kp LG(N0)     &kp SPACE           &mkp LCLK        &kp SPACE     &debug         &tog 6           &kp LG(COMMA)  &kp DEL
             >;
-            display-name = "Xcode";
+            display-name = "XCOD";
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
         };
     };
