@@ -10,7 +10,6 @@
         zephyr,flash = &flash0;
         zmk,kscan = &kscan0;
         zmk,battery = &vbatt;
-        zmk,physical-layout = &eyelash_sofle_layout;
         zmk,backlight = &backlight;
         zephyr,display = &oled;
     };
