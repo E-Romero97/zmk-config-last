@@ -345,7 +345,7 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp V &kp A &kp R &kp SPACE &kp SPACE &kp EQUAL &kp LEFT &kp LEFT>;
-            label = "VARIABLEVAR";
+            label = "VARIABLEVAR";zx
         };
 
         funcFunction: funcFunction {
